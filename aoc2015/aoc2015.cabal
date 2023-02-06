@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Day1.Solve
+      Day2.Solve
       Lib
   other-modules:
       Paths_aoc2015
@@ -34,6 +35,7 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , parsec
   default-language: Haskell2010
 
 executable aoc2015-exe
@@ -46,6 +48,7 @@ executable aoc2015-exe
   build-depends:
       aoc2015
     , base >=4.7 && <5
+    , parsec
   default-language: Haskell2010
 
 test-suite aoc2015-test
@@ -53,6 +56,7 @@ test-suite aoc2015-test
   main-is: Spec.hs
   other-modules:
       Day1.SolveSpec
+      Day2.SolveSpec
       Paths_aoc2015
   hs-source-dirs:
       test

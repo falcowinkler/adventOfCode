@@ -31,9 +31,12 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -Wno-missing-signatures
 
 library:
   source-dirs: src
+  dependencies:
+    - parsec
 
 executables:
   aoc2015-exe:
@@ -45,6 +48,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - aoc2015
+    - parsec
 
 tests:
   aoc2015-test:
