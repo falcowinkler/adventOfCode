@@ -1,10 +1,8 @@
 module Day2.SolveSpec where
 
-
 import Test.Hspec
 import System.IO
 import Day2.Solve
-import GHC.Real (FractionalExponentBase(Base10))
 
 spec :: Spec
 spec = do

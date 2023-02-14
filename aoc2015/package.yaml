@@ -32,12 +32,12 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 - -Wno-missing-signatures
-- -Wnowarn-missing-signatures
 
 library:
   source-dirs: src
   dependencies:
     - parsec
+    - containers
 
 executables:
   aoc2015-exe:
@@ -49,7 +49,6 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - aoc2015
-    - parsec
 
 tests:
   aoc2015-test:
