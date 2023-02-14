@@ -32,6 +32,7 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 - -Wno-missing-signatures
+- -Wnowarn-missing-signatures
 
 library:
   source-dirs: src

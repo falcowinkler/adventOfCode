@@ -32,7 +32,7 @@ library
       Paths_aoc2015
   hs-source-dirs:
       src
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-missing-signatures -Wnowarn-missing-signatures
   build-depends:
       base >=4.7 && <5
     , parsec
@@ -44,7 +44,7 @@ executable aoc2015-exe
       Paths_aoc2015
   hs-source-dirs:
       app
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-missing-signatures -Wnowarn-missing-signatures -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc2015
     , base >=4.7 && <5
@@ -60,7 +60,7 @@ test-suite aoc2015-test
       Paths_aoc2015
   hs-source-dirs:
       test
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-missing-signatures -Wnowarn-missing-signatures -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc2015
     , base >=4.7 && <5
