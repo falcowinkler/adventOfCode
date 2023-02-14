@@ -1,42 +1,48 @@
-module Day3.Solve where
+module Day3.Solve (solve1, solve2) where
 import Data.Set (Set)
 import qualified Data.Set as Set
-import Data.List (partition)
+import Data.List (partition, dropWhileEnd)
+import Data.Char (isSpace)
 
-data State = State { visited :: Set (Int, Int), px :: Int, py :: Int }
+type Coordinate = (Int, Int)
 
-update :: State -> Char -> State
-update state char = State {
-  visited = updatedVisited,
-  px = nx,
-  py = ny
-                          }
+data FlightLog = FlightLog { visited :: Set Coordinate, currentPosition :: Coordinate }
+
+move :: Coordinate -> Char -> Coordinate
+move (x, y) '>' = (x+1, y)
+move (x, y) '<' = (x-1, y)
+move (x, y) '^' = (x, y-1)
+move (x, y) 'v' = (x, y+1)
+move _ instruction = error $ "invalid instruction: " ++ [instruction]
+
+updateFlightLog :: FlightLog -> Char -> FlightLog
+updateFlightLog flightLog instruction = FlightLog { visited = updatedVisited, currentPosition = nextPosition }
   where
-    x = px state
-    y = py state
-    nx = case char of
-      '>' -> x+1
-      '<' -> x-1
-      _ -> x
-    ny = case char of
-      '^' -> y+1
-      'v' -> y-1
-      _ -> y
-    updatedVisited = Set.insert (nx, ny) (visited state)
+    nextPosition = move (currentPosition flightLog) instruction
+    updatedVisited = Set.insert nextPosition (visited flightLog)
 
-computeVisited :: String -> Set (Int, Int)
-computeVisited = visited . foldl update (State { visited = Set.singleton (0, 0), px = 0, py = 0 })
+computeVisitedHouses :: String -> Set Coordinate
+computeVisitedHouses = visited . foldl updateFlightLog (FlightLog { visited = Set.singleton (0, 0), currentPosition = (0, 0) })
 
-solve1 :: String -> Int
-solve1 = length . computeVisited
+--- utility
+
+trim = dropWhileEnd isSpace . dropWhile isSpace
 
 mapTuple :: (a -> b) -> (a, a) -> (b, b)
 mapTuple f (a1, a2) = (f a1, f a2)
 
+--- part 1
+
+solve1 :: String -> Int
+solve1 = length . computeVisitedHouses . trim
+
+--- part 2
+
 solve2 :: String -> Int
 solve2 = length
   . uncurry Set.union
-  . mapTuple computeVisited
+  . mapTuple computeVisitedHouses
   . mapTuple (map snd)
   . partition (even . fst)
   . zip ([0..] :: [Int])
+  . trim
