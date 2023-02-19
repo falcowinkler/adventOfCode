@@ -28,6 +28,7 @@ library
       Day1.Solve
       Day2.Solve
       Day3.Solve
+      Day4.Solve
       Lib
   other-modules:
       Paths_aoc2015
@@ -36,8 +37,11 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-missing-signatures
   build-depends:
       base >=4.7 && <5
+    , bytestring
     , containers
+    , cryptonite
     , parsec
+    , utf8-string
   default-language: Haskell2010
 
 executable aoc2015-exe
@@ -50,6 +54,10 @@ executable aoc2015-exe
   build-depends:
       aoc2015
     , base >=4.7 && <5
+    , containers
+    , cryptonite
+    , parsec
+    , utf8-string
   default-language: Haskell2010
 
 test-suite aoc2015-test
@@ -59,6 +67,7 @@ test-suite aoc2015-test
       Day1.SolveSpec
       Day2.SolveSpec
       Day3.SolveSpec
+      Day4.SolveSpec
       Paths_aoc2015
   hs-source-dirs:
       test
@@ -66,6 +75,10 @@ test-suite aoc2015-test
   build-depends:
       aoc2015
     , base >=4.7 && <5
+    , containers
+    , cryptonite
     , hspec
     , hspec-discover
+    , parsec
+    , utf8-string
   default-language: Haskell2010

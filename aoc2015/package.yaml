@@ -23,6 +23,8 @@ dependencies:
 - base >= 4.7 && < 5
 - containers
 - parsec
+- cryptonite
+- utf8-string
 
 ghc-options:
 - -Wall
@@ -40,6 +42,9 @@ library:
   dependencies:
     - parsec
     - containers
+    - cryptonite
+    - bytestring
+    - utf8-string
 
 executables:
   aoc2015-exe:
