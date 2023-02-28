@@ -25,6 +25,7 @@ dependencies:
 - parsec
 - cryptonite
 - utf8-string
+- split
 
 ghc-options:
 - -Wall
@@ -45,6 +46,7 @@ library:
     - cryptonite
     - bytestring
     - utf8-string
+    - split
 
 executables:
   aoc2015-exe:
