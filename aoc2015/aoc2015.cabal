@@ -30,6 +30,7 @@ library
       Day3.Solve
       Day4.Solve
       Day5.Solve
+      Day6.Solve
       Lib
   other-modules:
       Paths_aoc2015
@@ -72,6 +73,7 @@ test-suite aoc2015-test
       Day3.SolveSpec
       Day4.SolveSpec
       Day5.SolveSpec
+      Day6.SolveSpec
       Paths_aoc2015
   hs-source-dirs:
       test
